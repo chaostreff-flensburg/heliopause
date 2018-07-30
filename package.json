@@ -4,9 +4,13 @@
   "author": "Thorben Dittmar <roikiermedia@users.noreply.github.com>",
   "private": true,
   "scripts": {
-    "dev": "node server/index.js",
-    "start": "NODE_ENV=production node server/index.js"
+    "dev": "micro-dev server/",
+    "start": "NODE_ENV=production micro server/"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "micro": "^9.3.2"
+  },
+  "devDependencies": {
+    "micro-dev": "^3.0.0"
+  }
 }

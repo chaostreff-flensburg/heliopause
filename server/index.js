@@ -1,1 +1,1 @@
-console.log("Hello Space!");
+module.exports = () => "Hello Space!";
