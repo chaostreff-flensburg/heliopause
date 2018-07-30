@@ -4,13 +4,15 @@
   "author": "Thorben Dittmar <roikiermedia@users.noreply.github.com>",
   "private": true,
   "scripts": {
-    "dev": "micro-dev server/",
-    "start": "NODE_ENV=production micro server/"
+    "dev": "nodemon --ignore 'data/' server/",
+    "start": "NODE_ENV=production node server/"
   },
   "dependencies": {
-    "micro": "^9.3.2"
+    "express": "^4.16.3",
+    "fs-extra": "^7.0.0",
+    "lowdb": "^1.0.0"
   },
   "devDependencies": {
-    "micro-dev": "^3.0.0"
+    "nodemon": "^1.18.3"
   }
 }
