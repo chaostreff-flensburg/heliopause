@@ -2,31 +2,70 @@ const express = require("express");
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 const fs = require("fs-extra");
+const nanoid = require("nanoid");
 
+/* DB SETUP */
 const emptySpace = require("./emptySpace.js");
+const emptySecrets = require("./emptySecrets.js");
 
 const dbFile = "data/db.json";
 // check if db.json exists and create it if not
 fs.ensureFileSync(dbFile);
 
-const adapter = new FileSync(dbFile);
-const db = low(adapter);
+const dbAdapter = new FileSync(dbFile);
+const db = low(dbAdapter);
+
+const secretsFile = "data/secrets.json";
+// check if secrets.json exists and create it if not
+fs.ensureFileSync(secretsFile);
+
+const secretsAdapter = new FileSync(secretsFile);
+const secrets = low(secretsAdapter);
 
 // populate db.json if empty
 db.defaults(emptySpace).write();
+// populate secrets.json if empty
+secrets.defaults(emptySecrets).write();
 
+/* EXPRESS SETUP */
 let app = express();
+app.set("x-powered-by", false);
 app.use(express.json());
 
+/* ROUTES */
 app.get("/", (req, res) => {
   let data = db.getState();
   res.json(data);
 });
 
 app.post("/", (req, res) => {
-  const newState = req.body;
-  db.setState(newState);
-  res.status(201);
+  let auth = secrets
+    .get("token")
+    .value()
+    .includes(req.body.token);
+
+  if (auth) {
+    const newState = req.body.api;
+    db.setState(newState);
+    return res.status(201).send(newState);
+  } else {
+    return res.sendStatus(401);
+  }
+});
+
+app.post("/token", (req, res) => {
+  let auth = secrets
+    .get("token")
+    .value()
+    .includes(req.body.token);
+
+  if (auth) {
+    const newToken = nanoid(32);
+    secrets.get("token").push(newToken).write();
+    return res.status(201).send(newToken);
+  } else {
+    return res.sendStatus(401);
+  }
 });
 
 app.listen(3000);
