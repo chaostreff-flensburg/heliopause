@@ -53,6 +53,7 @@ $ npm run dev
 $ npm build
 $ npm start
 ```
+When started with `npm run dev` an authentication token `dev` is created.
 
 ### Code Style
 This project uses [Prettier](https://prettier.io) to format code. Prettier should be run before creating a pull request. You can run it with the default settings from your editor. For more information, refer to the [official documentation](https://prettier.io).

@@ -4,7 +4,7 @@
   "author": "Thorben Dittmar <roikiermedia@users.noreply.github.com>",
   "private": true,
   "scripts": {
-    "dev": "nodemon --ignore 'data/' server/",
+    "dev": "TOKEN=dev nodemon --ignore 'data/' server/",
     "start": "NODE_ENV=production node server/"
   },
   "dependencies": {
