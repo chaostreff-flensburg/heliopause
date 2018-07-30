@@ -61,7 +61,10 @@ app.post("/token", (req, res) => {
 
   if (auth) {
     const newToken = nanoid(32);
-    secrets.get("token").push(newToken).write();
+    secrets
+      .get("token")
+      .push(newToken)
+      .write();
     return res.status(201).send(newToken);
   } else {
     return res.sendStatus(401);
