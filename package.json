@@ -1,0 +1,12 @@
+{
+  "name": "heliopause",
+  "version": "0.0.1",
+  "author": "Thorben Dittmar <roikiermedia@users.noreply.github.com>",
+  "private": true,
+  "scripts": {
+    "dev": "node server/index.js",
+    "start": "NODE_ENV=production node server/index.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
