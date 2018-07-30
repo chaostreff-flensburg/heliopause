@@ -4,6 +4,31 @@
 
 <!-- @TDOD: Inline About Section -->
 
+## Api
+
+### `GET '/'`
+Get space api data.
+
+### `POST '/'`
+Post new api data. Returns the new api state on success. An authentication token is needed.
+```json
+{
+	"api": {
+		"space": "Chaostreff Flensburg",
+		//...
+	},
+	"token": "your-api-token"
+}
+```
+
+### `POST '/token'`
+Create a new authentication token. Returns the new token on success. An authentication token is needed.
+```json
+{
+	"token": "your-api-token"
+}
+```
+
 ## Deployment
 
 ### As a node.js Project
