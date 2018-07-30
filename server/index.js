@@ -16,10 +16,17 @@ const db = low(adapter);
 db.defaults(emptySpace).write();
 
 let app = express();
+app.use(express.json());
 
 app.get("/", (req, res) => {
   let data = db.getState();
   res.json(data);
+});
+
+app.post("/", (req, res) => {
+  const newState = req.body;
+  db.setState(newState);
+  res.status(201);
 });
 
 app.listen(3000);
