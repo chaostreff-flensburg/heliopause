@@ -9,7 +9,7 @@ export default class header extends Component {
             src="/static/spaceapi.png"
             alt="SpaceAPI Logo by @blinry, CC-BY-SA 4.0"
           />
-          <a href="http://spaceapi.net/documentation" target="_blank">
+          <a href="http://spaceapi.net/documentation" target="_blank" rel="noreferrer">
             Space API Reference
           </a>
         </header>
