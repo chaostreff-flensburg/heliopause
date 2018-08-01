@@ -44,6 +44,12 @@ Create a new authentication token. Returns the new token on success. An authenti
 }
 ```
 
+A token can also be created with the `TOKEN` env-variable on startup.
+
+```bash
+$ TOKEN=your-token npm start
+```
+
 ---
 
 ## Deployment
