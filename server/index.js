@@ -34,8 +34,8 @@ const secrets = low(secretsAdapter);
 secrets.defaults(emptySecrets).write();
 // set env token if not allready included
 if (
-  process.env.TOKEN ||
-  secrets
+  process.env.TOKEN &&
+  !secrets
     .get("token")
     .value()
     .includes(process.env.TOKEN)
