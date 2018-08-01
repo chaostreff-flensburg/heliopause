@@ -66,7 +66,7 @@ nextApp.prepare().then(() => {
 
     if (auth) {
       const newState = req.body.api;
-      db.setState(newState);
+      db.setState(newState).write();
       return res.status(201).send(newState);
     } else {
       return res.sendStatus(401);
