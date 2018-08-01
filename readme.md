@@ -93,7 +93,7 @@ For detailed explanation on how things work, checkout the [Next.js docs](https:/
 
 ## Attribution
 
-SpaceAPI Logo & Avatar by [Sebastian Morr](https://morr.cc/spaceapi-logo/) is licensed under [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+SpaceAPI Logo & Avatar by [Sebastian Morr](https://morr.cc/spaceapi-logo/) are licensed under [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ---
 
