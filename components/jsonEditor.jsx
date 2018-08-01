@@ -139,7 +139,7 @@ class Editor extends React.Component {
           button {
             display: block;
 
-            margin-top: 20px;
+            margin: 20px 0;
             padding: 12px 24px;
 
             float: right;
