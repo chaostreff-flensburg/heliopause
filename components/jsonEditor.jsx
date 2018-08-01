@@ -84,12 +84,14 @@ class Editor extends React.Component {
           </button>
         </section>
         <style jsx>{`
-          section {
+          main {
             max-width: 720px;
 
-            margin-top: 32px;
             margin-left: auto;
             margin-right: auto;
+          }
+          section {
+            margin-top: 32px;
             padding: 0;
 
             border-radius: 4px;
@@ -100,6 +102,8 @@ class Editor extends React.Component {
             border-radius: 4px;
           }
           .key {
+            box-sizing: border-box;
+
             padding: 12px;
           }
           span {
