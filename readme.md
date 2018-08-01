@@ -91,6 +91,10 @@ This project uses [Prettier](https://prettier.io) to format code. Prettier shoul
 
 For detailed explanation on how things work, checkout the [Next.js docs](https://nextjs.org/).
 
+## Attribution
+
+SpaceAPI Logo & Avatar by [Sebastian Morr](https://morr.cc/spaceapi-logo/) is licensed under [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+
 ---
 
 Made with ♡ at [Chaostreff Flensburg](https://twitter.com/chaos_fl) | [CI & CD](https://drone.ctfl.space/chaostreff-flensburg/heliopause) | [License](./LICENSE)
