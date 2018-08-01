@@ -12,7 +12,8 @@ export default class MyDocument extends Document {
           <NextScript />
           <style jsx>{`
             body {
-              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+              color: #010101;
+              font-family: "Lato",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
                 Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 
               background-color: rgb(246, 247, 248);
