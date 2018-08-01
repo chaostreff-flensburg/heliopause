@@ -3,6 +3,15 @@ const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 const fs = require("fs-extra");
 const nanoid = require("nanoid");
+const next = require("next");
+
+/* ENV */
+const port = parseInt(process.env.PORT, 10) || 3000;
+const dev = process.env.NODE_ENV !== "production";
+
+/* NEXT.JS SETUP */
+const nextApp = next({ dev });
+const handle = nextApp.getRequestHandler();
 
 /* DB SETUP */
 const emptySpace = require("./emptySpace.js");
@@ -43,42 +52,52 @@ app.set("x-powered-by", false);
 app.use(express.json());
 
 /* ROUTES */
-app.get("/", (req, res) => {
-  let data = db.getState();
-  res.json(data);
-});
+nextApp.prepare().then(() => {
+  app.get("/", (req, res) => {
+    let data = db.getState();
+    res.json(data);
+  });
 
-app.post("/", (req, res) => {
-  let auth = secrets
-    .get("token")
-    .value()
-    .includes(req.body.token);
-
-  if (auth) {
-    const newState = req.body.api;
-    db.setState(newState);
-    return res.status(201).send(newState);
-  } else {
-    return res.sendStatus(401);
-  }
-});
-
-app.post("/token", (req, res) => {
-  let auth = secrets
-    .get("token")
-    .value()
-    .includes(req.body.token);
-
-  if (auth) {
-    const newToken = nanoid(32);
-    secrets
+  app.post("/", (req, res) => {
+    let auth = secrets
       .get("token")
-      .push(newToken)
-      .write();
-    return res.status(201).send(newToken);
-  } else {
-    return res.sendStatus(401);
-  }
-});
+      .value()
+      .includes(req.body.token);
 
-app.listen(3000);
+    if (auth) {
+      const newState = req.body.api;
+      db.setState(newState);
+      return res.status(201).send(newState);
+    } else {
+      return res.sendStatus(401);
+    }
+  });
+
+  app.post("/token", (req, res) => {
+    let auth = secrets
+      .get("token")
+      .value()
+      .includes(req.body.token);
+
+    if (auth) {
+      const newToken = nanoid(32);
+      secrets
+        .get("token")
+        .push(newToken)
+        .write();
+      return res.status(201).send(newToken);
+    } else {
+      return res.sendStatus(401);
+    }
+  });
+
+  // handle all other routes with next.js
+  app.get("*", (req, res) => {
+    return handle(req, res);
+  });
+
+  app.listen(port, err => {
+    if (err) throw err;
+    console.log(`> Ready on http://localhost:${port}`);
+  });
+});
