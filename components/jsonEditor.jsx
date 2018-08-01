@@ -88,7 +88,7 @@ class Editor extends React.Component {
             />
           </label>
         </section>
-        <button onClick={this.onSave} disabled={!this.state.canSave}>
+        <button onClick={this.onSave} disabled={!this.state.canSave || !this.state.token}>
           SAVE API
         </button>
         <style jsx>{`
