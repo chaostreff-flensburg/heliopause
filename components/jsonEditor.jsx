@@ -15,7 +15,7 @@ class Editor extends React.Component {
 
   componentWillMount = () => {
     axios.get("/").then(res => {
-      let data = JSON.stringify(res.data, null, '\t');
+      let data = JSON.stringify(res.data, null, "\t");
       this.setState({ api: data });
     });
   };
@@ -41,10 +41,10 @@ class Editor extends React.Component {
   onSave = () => {
     if (this.state.canSave === false) return;
     let newApi = JSON.parse(this.state.api);
-    axios.post("/", {api: newApi, token: this.state.token}).then(res => {
-      let data = JSON.stringify(res.data, null, '\t');
+    axios.post("/", { api: newApi, token: this.state.token }).then(res => {
+      let data = JSON.stringify(res.data, null, "\t");
       this.setState({ api: data });
-    })
+    });
   };
 
   render() {
