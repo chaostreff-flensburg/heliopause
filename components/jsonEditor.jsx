@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
 
 import Header from "./header";
 
@@ -44,14 +45,18 @@ class Editor extends React.Component {
     if (this.state.canSave === false) return;
     let newApi = JSON.parse(this.state.api);
     axios.post("/", { api: newApi, token: this.state.token }).then(res => {
+      toast("Saved changes to API 🚀");
       let data = JSON.stringify(res.data, null, "\t");
       this.setState({ api: data });
-    });
+    }).catch(err => {
+      toast.error(err.message);
+    })
   };
 
   render() {
     return (
       <main>
+        <ToastContainer />
         <Header />
         <section>
           <AceEditor

@@ -6,9 +6,23 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           <title>Space API Editor</title>
-          <meta name="description" content="The heliopause Space API Editor. Edit your Space API from the web." />
+          <meta
+            name="description"
+            content="The heliopause Space API Editor. Edit your Space API from the web."
+          />
           <meta name="viewport" content="width=device-width,minimum-scale=1" />
-          <link rel="icon" type="image/png" href="/static/spaceapi-avatar.png" />
+
+          <link
+            rel="icon"
+            type="image/png"
+            href="/static/spaceapi-avatar.png"
+          />
+
+          <link
+            rel="preload"
+            href="https://cdn.jsdelivr.net/npm/react-toastify@4.1.0/dist/ReactToastify.min.css"
+            as="style"
+          />
         </Head>
         <body>
           <Main />
@@ -16,8 +30,9 @@ export default class MyDocument extends Document {
           <style jsx>{`
             body {
               color: #010101;
-              font-family: "Montserrat",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+              font-family: "Montserrat", -apple-system, BlinkMacSystemFont,
+                "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+                "Helvetica Neue", sans-serif;
 
               background-color: rgb(246, 247, 248);
             }
@@ -62,6 +77,10 @@ export default class MyDocument extends Document {
               outline: none;
             }
           `}</style>
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/react-toastify@4.1.0/dist/ReactToastify.min.css"
+          />
         </body>
       </html>
     );
