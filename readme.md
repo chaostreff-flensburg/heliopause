@@ -1,10 +1,10 @@
 # heliopause
 
-> a space api microservice
+> 🚀 a space api microservice
 
 ![build status](https://drone.ctfl.space/api/badges/chaostreff-flensburg/heliopause/status.svg)
 
-<!-- @TDOD: Inline About Section -->
+![heliopause editor screenshot](/docs/screenshot.png)
 
 ## Editor
 
