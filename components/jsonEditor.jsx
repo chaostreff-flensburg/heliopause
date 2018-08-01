@@ -62,7 +62,7 @@ class Editor extends React.Component {
               $blockScrolling: true
             }}
             fontSize={14}
-            height="70vh"
+            height="65vh"
             width="100%"
             focus={true}
             wrapEnabled={true}
@@ -71,18 +71,18 @@ class Editor extends React.Component {
           />
         </section>
         <section className="key">
-            <label>
-              <span>API-Token</span>
-              <input
-                type="text"
-                onChange={e => this.onTokenChange(e.target.value)}
-                placeholder="Valid API-Token needed to save changes."
-              />
-            </label>
-          <button onClick={this.onSave} disabled={!this.state.canSave}>
-            Save
-          </button>
+          <label>
+            <span>API-Token</span>
+            <input
+              type="text"
+              onChange={e => this.onTokenChange(e.target.value)}
+              placeholder="Valid API-Token needed to save changes."
+            />
+          </label>
         </section>
+        <button onClick={this.onSave} disabled={!this.state.canSave}>
+          SAVE
+        </button>
         <style jsx>{`
           main {
             max-width: 720px;
@@ -91,7 +91,7 @@ class Editor extends React.Component {
             margin-right: auto;
           }
           section {
-            margin-top: 32px;
+            margin-top: 24px;
             padding: 0;
 
             border-radius: 4px;
@@ -125,7 +125,36 @@ class Editor extends React.Component {
           button {
             display: block;
 
-            margin-bottom: 16px;
+            margin-top: 24px;
+            padding: 12px 24px;
+
+            float: right;
+
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+
+            appearance: none;
+            border: none;
+            border-radius: 4px;
+            background-color: rgb(6, 122, 228);
+            background: linear-gradient(rgb(6, 132, 248), rgb(6, 122, 228));
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 200, 0.35);
+            cursor: pointer;
+
+            transition: all 0.1s ease-in-out;
+          }
+          button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0px 2px 15px 1px rgba(0, 0, 150, 0.25);
+          }
+          button:disabled {
+            opacity: 0.5;
+            box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+            cursor: not-allowed;
+          }
+          button:disabled:hover {
+            transform: translateY(0px);
           }
         `}</style>
       </main>
