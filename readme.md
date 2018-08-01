@@ -6,6 +6,10 @@
 
 <!-- @TDOD: Inline About Section -->
 
+## Editor
+
+An Editor for easy editing is provided on `/editor`.
+
 ## Api
 
 ### `GET '/'`
