@@ -5,6 +5,8 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
+          <title>Space API Editor</title>
+          <meta name="description" content="The heliopause Space API Editor. Edit your Space API from the web." />
           <meta name="viewport" content="width=device-width,minimum-scale=1" />
           <link rel="icon" type="image/png" href="/static/spaceapi-avatar.png" />
         </Head>
