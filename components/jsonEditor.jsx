@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 
+import Header from "./header";
+
 import brace from "brace";
 import "brace/mode/json";
 import "brace/theme/xcode";
@@ -50,6 +52,7 @@ class Editor extends React.Component {
   render() {
     return (
       <main>
+        <Header />
         <section>
           <AceEditor
             class="editor"
@@ -62,7 +65,7 @@ class Editor extends React.Component {
               $blockScrolling: true
             }}
             fontSize={14}
-            height="65vh"
+            height="60vh"
             width="100%"
             focus={true}
             wrapEnabled={true}
@@ -91,12 +94,18 @@ class Editor extends React.Component {
             margin-right: auto;
           }
           section {
-            margin-top: 24px;
+            margin-top: 16px;
             padding: 0;
 
             border-radius: 4px;
             background-color: #fff;
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+          }
+          @media (max-width: 719px) {
+            section {
+              margin-left: -4px;
+              margin-right: -4px;
+            }
           }
           :global(#jsoneditor) {
             border-radius: 4px;
@@ -125,7 +134,7 @@ class Editor extends React.Component {
           button {
             display: block;
 
-            margin-top: 24px;
+            margin-top: 20px;
             padding: 12px 24px;
 
             float: right;
@@ -155,6 +164,11 @@ class Editor extends React.Component {
           }
           button:disabled:hover {
             transform: translateY(0px);
+          }
+          @media (max-width: 719px) {
+            button {
+              margin-right: 12px;
+            }
           }
         `}</style>
       </main>
