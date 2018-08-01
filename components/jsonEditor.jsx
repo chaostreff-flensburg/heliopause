@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 
 import Header from "./header";
 
@@ -44,13 +44,16 @@ class Editor extends React.Component {
   onSave = () => {
     if (this.state.canSave === false) return;
     let newApi = JSON.parse(this.state.api);
-    axios.post("/", { api: newApi, token: this.state.token }).then(res => {
-      toast("Saved changes to API 🚀");
-      let data = JSON.stringify(res.data, null, "\t");
-      this.setState({ api: data });
-    }).catch(err => {
-      toast.error(err.message);
-    })
+    axios
+      .post("/", { api: newApi, token: this.state.token })
+      .then(res => {
+        toast("Saved changes to API 🚀");
+        let data = JSON.stringify(res.data, null, "\t");
+        this.setState({ api: data });
+      })
+      .catch(err => {
+        toast.error(err.message);
+      });
   };
 
   render() {
@@ -88,7 +91,10 @@ class Editor extends React.Component {
             />
           </label>
         </section>
-        <button onClick={this.onSave} disabled={!this.state.canSave || !this.state.token}>
+        <button
+          onClick={this.onSave}
+          disabled={!this.state.canSave || !this.state.token}
+        >
           SAVE API
         </button>
         <style jsx>{`
