@@ -10,6 +10,10 @@
 
 An Editor for easy editing is provided on `/editor`.
 
+## Door Widget
+
+A widget for displaying the door status is provided on `/door`.
+
 ## Api
 
 ### `GET '/'`

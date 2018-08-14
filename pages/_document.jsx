@@ -27,16 +27,6 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <style jsx>{`
-            body {
-              color: #010101;
-              font-family: "Montserrat", -apple-system, BlinkMacSystemFont,
-                "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
-                "Helvetica Neue", sans-serif;
-
-              background-color: rgb(246, 247, 248);
-            }
-          `}</style>
           <style jsx global>{`
             /* CSS Micro Reset
       https://github.com/vladocar/CSS-Micro-Reset
