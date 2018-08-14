@@ -7,6 +7,20 @@ const Editor = dynamic(import("../components/jsonEditor.jsx"), {
 
 export default class extends React.Component {
   render() {
-    return <Editor />;
+    return (
+      <React.Fragment>
+        <Editor />
+        <style jsx global>{`
+          body {
+            color: #010101;
+            font-family: "Montserrat", -apple-system, BlinkMacSystemFont,
+              "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+              "Helvetica Neue", sans-serif;
+
+            background-color: rgb(246, 247, 248);
+          }
+        `}</style>
+      </React.Fragment>
+    );
   }
 }
