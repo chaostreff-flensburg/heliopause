@@ -81,7 +81,7 @@ nextApp.prepare().then(() => {
       .includes(req.query.token);
 
     if (auth) {
-      db.set("state.open", req.query.open).write();
+      db.set("state.open", JSON.parse(req.query.open)).write();
       return res.status(201).send(db.get("state"));
     } else {
       return res.sendStatus(401);
