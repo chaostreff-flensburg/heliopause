@@ -1,0 +1,29 @@
+version: '3.3'
+
+services:
+  application:
+    container_name: heliopause
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    # This section is for the treafik reverse proxy
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=heliopause"
+      - "traefik.frontend.rule=Host:api.localhost.fpfle.de"
+      - "traefik.docker.network=web"
+      - "traefik.port=80"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=80
+      # Please change this token
+      - TOKEN=42
+    volumes:
+      - ./data:/app/data
+    restart: always
+
+networks:
+  web:
+    external: true
