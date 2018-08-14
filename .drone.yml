@@ -9,5 +9,5 @@ pipeline:
     image: plugins/docker
     repo: roikiermedia/heliopause
     secrets: [ docker_username, docker_password ]
-
-  branches: master
+    when:
+      branch: master
