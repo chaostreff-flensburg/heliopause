@@ -19,5 +19,9 @@ COPY . ./
 # build static assets
 RUN npm run build
 
+# add environment variables
+ENV HOST=0.0.0.0
+ENV PORT=80
+
 # start application
 CMD [ "npm", "start" ]

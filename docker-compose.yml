@@ -16,8 +16,6 @@ services:
       - "traefik.docker.network=web"
       - "traefik.port=80"
     environment:
-      - HOST=0.0.0.0
-      - PORT=80
       # Please change this token
       - TOKEN=42
     volumes:
