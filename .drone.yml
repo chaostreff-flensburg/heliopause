@@ -4,3 +4,10 @@ pipeline:
     commands:
       - npm install --production
       - npm run build
+
+  publish:
+    image: plugins/docker
+    repo: roikiermedia/heliopause
+    secrets: [ docker_username, docker_password ]
+
+  branches: master
