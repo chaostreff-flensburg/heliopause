@@ -12,7 +12,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.backend=heliopause"
-      - "traefik.frontend.rule=Host:api.localhost.fpfle.de"
+      - "traefik.frontend.rule=Host:api.chaostreff-flensburg.de"
       - "traefik.docker.network=web"
       - "traefik.port=80"
     environment:
