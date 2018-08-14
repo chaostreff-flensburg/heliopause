@@ -34,6 +34,16 @@ Post new api data. Returns the new api state on success. An authentication token
 
 ---
 
+### `POST '/door'`
+
+An endpoint to post new door status through url-queries. An authentication token is needed.
+
+```bash
+$ curl --request POST http://localhost:3000/door?open=true&token=your-token
+```
+
+---
+
 ### `POST '/token'`
 
 Create a new authentication token. Returns the new token on success. An authentication token is needed.

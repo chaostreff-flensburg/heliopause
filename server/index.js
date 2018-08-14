@@ -73,6 +73,21 @@ nextApp.prepare().then(() => {
     }
   });
 
+  app.post("/door", (req, res) => {
+    console.log(req)
+    let auth = secrets
+      .get("token")
+      .value()
+      .includes(req.query.token);
+
+    if (auth) {
+      db.set("state.open", req.query.open).write();
+      return res.status(201).send(db.get("state"));
+    } else {
+      return res.sendStatus(401);
+    }
+  });
+
   app.post("/token", (req, res) => {
     let auth = secrets
       .get("token")
