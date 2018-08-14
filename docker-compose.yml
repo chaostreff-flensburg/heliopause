@@ -3,6 +3,7 @@ version: '3.3'
 services:
   application:
     container_name: heliopause
+    image: roikiermedia/heliopause:latest
     build:
       context: .
       dockerfile: ./Dockerfile
