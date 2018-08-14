@@ -75,7 +75,7 @@ $ npm install # Or yarn install
 $ npm run dev
 
 # build for production and launch server
-$ npm build
+$ npm run build
 $ npm start
 ```
 
