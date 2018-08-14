@@ -13,11 +13,16 @@ export default class door extends Component {
       <React.Fragment>
         <Head>
           <title>Space API Door Widget</title>
-          <link href="https://fonts.googleapis.com/css?family=Space+Mono:400" rel="stylesheet" />
+          <link
+            href="https://fonts.googleapis.com/css?family=Space+Mono:400"
+            rel="stylesheet"
+          />
         </Head>
         <section>
           <figure className="status" />
-          <span>Space {`${this.props.state.open ? 'geöffnet' : 'geschlossen'}`}</span>
+          <span>
+            Space {`${this.props.state.open ? "geöffnet" : "geschlossen"}`}
+          </span>
         </section>
         <style jsx>{`
           section {
@@ -33,7 +38,7 @@ export default class door extends Component {
 
             margin: 0 12px;
 
-            background-color: ${ this.props.state.open ? '#4bef84' : '#EF4B4B' };
+            background-color: ${this.props.state.open ? "#4bef84" : "#EF4B4B"};
             border-radius: 50%;
           }
         `}</style>
