@@ -63,6 +63,18 @@ A node.js version of `10.4` or higher is needed. Older versions may work, but ar
 
 Older databases can be migrated by simply copying the `*.db` files from the `./data` directory.
 
+### Docker
+
+```bash
+$ docker run -d --name heliopause -p 8080:80 -v ./data:/app/data roikiermedia/heliopause
+```
+
+An example docker-compose.yml is also provided.
+
+#### Data Migration
+
+If the same host volume is used, the data will be persisted automatically.
+
 ## Development
 
 ### Build Setup
